@@ -1,0 +1,18 @@
+{
+  "logistic_regression": 0.6,
+  "lasso": 0.5,
+  "decision_tree": 0.5,
+  "random_forest": 0.6111111111111112,
+  "logistic_regression_pca": 0.0,
+  "lasso_pca": 0.0,
+  "decision_tree_pca": 0.0,
+  "random_forest_pca": 0.5789473684210527,
+  "logistic_regression_SMOTE": 0.6444444444444445,
+  "lasso_SMOTE": 0.6444444444444445,
+  "decision_tree_SMOTE": 0.625,
+  "random_forest_SMOTE": 0.6304347826086957,
+  "logistic_regression_SMOTE_pca": 0.0,
+  "lasso_SMOTE_pca": 0.6296296296296297,
+  "decision_tree_SMOTE_pca": 0.6153846153846154,
+  "random_forest_SMOTE_pca": 0.6571428571428571
+}

@@ -89,7 +89,7 @@ def main_predict():
             return jsonify({'trace': traceback.format_exc()})
     else:
         print('Error when try load models.')
-        return 'No model here to useNo model here to use'
+        return 'No model here to use'
 
 
 def predict(data, model, nb_pred, model_precision):
