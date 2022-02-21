@@ -37,10 +37,10 @@ def get_model_info(ini_path=None):
         keep_file_name = '_pca' if PCA else ''
 
         model_name = model_type + SMOTE_file_name + keep_file_name
-        model_file_name = model_name + ".pkl"
+        model_file_name = f'{model_name}.pkl'
         model_file_path = os.path.join(model_folder, disease_dataset, model_file_name)
 
-        columns_file_name = "models_columns" + keep_file_name + ".pkl"
+        columns_file_name = f'models_columns{keep_file_name}.pkl'
         columns_file_path = os.path.join(model_folder, disease_dataset, columns_file_name)
 
         precisions_file_path = os.path.join(model_folder, disease_dataset, "models_precisions.json")
@@ -65,7 +65,7 @@ def main_predict():
     if dict_diseases:
         try:
             data_request = str(request.data)[2:-1]
-            list_data = [d for d in data_request.split(";")]
+            list_data = list(data_request.split(";"))
 
             disease = list_data[0]
 
@@ -85,15 +85,16 @@ def main_predict():
 
         except:
             disease = disease or "! error when get disease !"
-            print("Error when try predict with the model of " + disease + " .\n", traceback.format_exc())
+            print(f'Error when try predict with the model of {disease}' + " .\n", traceback.format_exc())
             return jsonify({'trace': traceback.format_exc()})
+
     else:
         print('Error when try load models.')
         return 'No model here to use'
 
 
 def predict(data, model, nb_pred, model_precision):
-    list_predictions = list()
+    list_predictions = []
     for _ in range(nb_pred):
         prediction = np.round(model.predict(data)[0])
         list_predictions.append(prediction)
